@@ -1,0 +1,7 @@
+.env
+node_modules/
+dist/
+client/dist/
+scanner/scan_output.json
+*.log
+.DS_Store

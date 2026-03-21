@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: hsl(220, 20%, 8%);
+    color: hsl(220, 14%, 90%);
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(220, 18%, 12%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(220, 14%, 28%);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(220, 14%, 38%);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.875rem;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+      bg-brand-500 hover:bg-brand-400 text-white
+      transition-all duration-200 ease-out
+      shadow-lg shadow-brand-500/25
+      hover:shadow-brand-400/40 hover:scale-[1.02]
+      disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-brand-500;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
+      text-slate-400 hover:text-white hover:bg-surface-700
+      transition-all duration-200;
+  }
+
+  .input-file-zone {
+    @apply flex flex-col items-center justify-center gap-3 p-6 rounded-xl
+      border-2 border-dashed border-surface-500
+      hover:border-brand-500 hover:bg-brand-500/5
+      transition-all duration-200 cursor-pointer text-center;
+  }
+
+  .input-file-zone.active {
+    @apply border-brand-400 bg-brand-500/10;
+  }
+
+  .input-file-zone.has-file {
+    @apply border-emerald-500/50 bg-emerald-500/5;
+  }
+
+  .severity-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase;
+  }
+
+  .severity-badge.CRITICAL {
+    @apply bg-severity-critical-bg text-severity-critical border border-severity-critical-border;
+  }
+
+  .severity-badge.WARNING {
+    @apply bg-severity-warning-bg text-severity-warning border border-severity-warning-border;
+  }
+
+  .severity-badge.INFO {
+    @apply bg-severity-info-bg text-severity-info border border-severity-info-border;
+  }
+
+  .finding-card {
+    @apply glass-card p-5 transition-all duration-200 hover:scale-[1.005];
+  }
+
+  .finding-card.CRITICAL {
+    @apply border-severity-critical-border/60 hover:border-severity-critical/60;
+  }
+
+  .finding-card.WARNING {
+    @apply border-severity-warning-border/60 hover:border-severity-warning/60;
+  }
+
+  .finding-card.INFO {
+    @apply border-severity-info-border/60 hover:border-severity-info/60;
+  }
+}
