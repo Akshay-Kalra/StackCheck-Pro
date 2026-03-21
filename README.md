@@ -194,6 +194,6 @@ StackCheck-Pro/
 
 ## 🏗️ Built by
 
-**Vatsal Gautam** — [@vsgautam22](https://github.com/vsgautam22)
+**Gautam Suresh** — [@vsgautam22](https://github.com/vsgautam22)
 
 > If you found this useful, consider leaving a ⭐ on [GitHub](https://github.com/vsgautam22/StackCheck-Pro)!
